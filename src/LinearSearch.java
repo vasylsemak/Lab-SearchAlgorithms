@@ -6,8 +6,11 @@ public class LinearSearch {
 				 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 		 
 		 LinearSearch ls = new LinearSearch();
-		 System.out.println("Index is: " + (ls.findLetterIdx('0', letters)));
+		 
+		 System.out.println("Index is: " + (ls.findLetterIdx('f', letters)));
+		 System.out.println("Index from end is: " + (ls.findLetterIdxBackwards('f', letters)));
 	}
+	
 	
 	public int findLetterIdx(char target, char[] abc) {
 		if(abc == null) return -1;
@@ -17,6 +20,17 @@ public class LinearSearch {
 		}
 		
 		return -1;
+	}
+	
+	
+	public int findLetterIdxBackwards(char target, char[] data) {
+		if(data == null) return -1;
+		
+		for(int i = (data.length -1); i >= 0; i--) {
+			if(data[i] == target) return i;
+		}
+		
+		return 7;
 	}
 
 }
