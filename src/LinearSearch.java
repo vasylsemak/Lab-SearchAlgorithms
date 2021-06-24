@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class LinearSearch {
 
@@ -7,8 +8,9 @@ public class LinearSearch {
 		 
 		 LinearSearch ls = new LinearSearch();
 		 
-		 System.out.println("Index is: " + (ls.findLetterIdx('f', letters)));
-		 System.out.println("Index from end is: " + (ls.findLetterIdxBackwards('f', letters)));
+		 System.out.println("Index is: " + (ls.findLetterIdx('c', letters)));
+		 System.out.println("findLetterIdxBackwards is: " + (ls.findLetterIdxBackwards('x', letters)));
+		 System.out.println("findLetterFromMiddle is: " + (ls.findLetterFromMiddle('l', letters)));
 	}
 	
 	
@@ -31,6 +33,30 @@ public class LinearSearch {
 		}
 		
 		return 7;
+	}
+	
+	
+	public int findLetterFromMiddle(char target, char[] data) {
+		if(data == null || data.length == 0) return -1;
+		
+		int middleP = (int)(data.length / 2);
+		
+		if(data[middleP] == target) return middleP;
+		else {
+			int leftP = middleP - 1;
+			int rightP = middleP + 1;
+			
+			while(leftP >= 0 && rightP <= data.length) {
+				
+				if(data[leftP] == target) return leftP;
+				if(data[rightP] == target) return rightP;
+				
+				leftP--;
+				rightP++;
+			}
+		}
+
+		return -1;
 	}
 
 }
